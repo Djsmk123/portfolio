@@ -11,6 +11,7 @@ html {
     rgba(12, 10, 22, 0.863)
   );
 
+height: 100%;
   --imp-text-color: #c770f0;
 }
 
@@ -406,11 +407,67 @@ button:focus {
 /* --------- */
 .footer {
   background-color: rgb(10, 4, 22);
-  bottom: 0 !important;
+
   padding-top: 10px !important;
   justify-content:end;
+  position: fixed !important;
+  bottom: 0;
   padding-bottom: 8px !important ;
 }
+.blog-tag-btn{
+  background-color: #2d1950 !important;
+  color: white !important;
+  border-radius: 5px !important;
+  padding: 5px !important;
+  width: 100px !important;
+  margin: 5px !important;
+  font-size: 0.8em !important;
+  font-weight: 500 !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  display: inline-block !important;
+  transition: 0.5s !important;
+
+}
+.blog-title{
+  font-size: 1.2em !important;
+  font-weight: bold !important;
+  padding-bottom: 5px !important;
+  padding-top: 5px !important;
+  color: white !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  display: inline-block !important;
+  transition: 0.5s !important;
+}
+.blog-likes{
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  color: white !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  display: inline-block !important;
+  transition: 0.5s !important;
+}
+.blog-date{
+  font-size: 1em !important;
+  font-weight: 500 !important;
+  color: white !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  display: inline-block !important;
+  transition: 0.5s !important;
+}
+.blog-desc{
+  font-size: 0.8em !important;
+  font-weight: 500 !important;
+  color: grey !important;
+  text-decoration: none !important;
+  text-align: center !important;
+  display: inline-block !important;
+  transition: 0.5s !important;
+}
+
 .footer-copywright {
   text-align: center !important;
 }

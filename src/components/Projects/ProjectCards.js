@@ -1,5 +1,5 @@
 import React from "react";
-import {Card,Image,Row, Col} from "react-bootstrap";
+import {Card} from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { CgWebsite,CgOrganisation } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
@@ -56,17 +56,6 @@ function ProjectCards(props) {
    
   );
 }
-/*<Row style={{ justifyContent: "space-evenly", paddingBottom: "10px" }}>
-            <Card.Img src={project["organisation"]["img"]} alt="Organisation Logo" style={{
-              borderRadius:"50%",
-              height:"20%",
-              maxWidth:"20%"
-            }}>
-            
-            </Card.Img>
-              <Card.Text>
-                {project["organisation"]["name"]}
-              </Card.Text>
-            </Row>*/
+
 
 export default ProjectCards;
