@@ -7,6 +7,7 @@ import Projects from "./components/Projects/Projects";
 import Footer from "./components/Footer";
 import Blogs from "./components/Blogs/Blogs";
 import Resume from "./components/Resume/ResumeNew";
+import TerminalPortfolio from "./components/terminal/terminal_portfolio";
 import {
   BrowserRouter as Router,
   Route,
@@ -42,6 +43,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/terminal" element={<TerminalPortfolio/>} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

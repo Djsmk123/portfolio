@@ -1,33 +1,33 @@
 import React from "react"; 
  
-import {Card,Button,Row,Col} from "react-bootstrap";
+import {Card,Button,Row} from "react-bootstrap";
 // import calender icon
 import {BsCalendar2Check } from "react-icons/bs";
 import { BsHeartFill, } from "react-icons/bs";
-import {CgComment} from "react-icons/cg";
+
 
 function BlogsCard(props) {
-  const blog = props.blog;
+    const blog = props.blog;
     const link=blog["url"];
     const title=blog["title"];
     const date=blog["published_at"];
-    // convert date to DD/MM/YYYY
     const date2=date.substring(8,10)+"/"+date.substring(5,7)+"/"+date.substring(0,4);
     const desc=blog["description"];
-    const cover=blog["social_image"];
     const tag=blog["tag_list"];
     const likes=blog["positive_reactions_count"];
-    const comments=blog["comments_count"];
 
   return (
    
    
    <Card className="project-card-view" style={{
         width: "30rem",
-        maxHeight: "300px",
+        maxHeight: "450px",
         margin: "10px",
     
-   }}>
+   }
+   } href={link} 
+   onClick={() => window.open(link,'blank')}>
+
            
         <Card.Body style={{
             padding: "10px",
@@ -56,11 +56,32 @@ function BlogsCard(props) {
             <div className="blog-row" style={{
                 display: "flex",
                 flexDirection: "row",
-                justifyContent: "end",
+                justifyContent: "space-between",
                 padding: "10px",
 
             }}>
-
+                 <div
+           className="blog-btn"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+              }} 
+           >
+             <Button variant="primary"
+            style={{
+                width: "100px",
+                height: "30px",
+                backgroundColor: "#1F2937",
+                fontSize: "0.8rem",
+                borderColor: "#1F2937",
+            }}
+            href={link} target
+            ="_blank">Read More</Button>
+           </div>
+                <div className="blog-states" style={{
+                    display: "flex",
+                    flexDirection: "row",
+                }}> 
                 <div className="blog-date" style={
                     {
                         display: "flex",
@@ -69,8 +90,8 @@ function BlogsCard(props) {
                     }
                 }>
                     <BsCalendar2Check className="blog-date-icon" style={{
-                height: "30px",
-                width: "30px",
+                height: "1.5rem",
+                width: "2rem",
                 paddingRight: "10px",
             }}/>
     
@@ -88,8 +109,8 @@ function BlogsCard(props) {
                   
                     }>
                     <BsHeartFill className="blog-like-icon" style={{
-                        height: "30px",
-                        width: "30px",
+                      height: "2rem",
+                      width: "2rem",
                         paddingRight: "10px",
                         color: "red",
                     }}/>
@@ -97,44 +118,11 @@ function BlogsCard(props) {
                                 {likes}
                         </Card.Text>
                  </div>
-                    <div className="blog-comment" style={
-                    {
-                        display: "flex",
-                        flexDirection: "row",
-                        paddingLeft: "10px",
-                    }
-                    }>
-                    <CgComment className="blog-comment-icon" style={{
-                        height: "30px",
-                        width: "30px",
-                        paddingRight: "10px",
-                    }}/>
-                        <Card.Text className="blog-likes">
-                                {comments}
-                        </Card.Text>
-                        </div>
+                 
+                </div>
                 </div> 
 
-           <div
-           className="blog-btn"
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                justifyContent: "end",
-                padding: "10px",
-              }} 
-           >
-             <Button variant="primary"
-            style={{
-                width: "150px",
-                height: "40px",
-                marginTop: "10px",
-                backgroundColor: "#1F2937",
-                borderColor: "#1F2937",
-            }}
-            href={link} target
-            ="_blank">Read More</Button>
-           </div>
+          
         </Card.Body>
 
 
@@ -144,3 +132,22 @@ function BlogsCard(props) {
     );
 }
 export default BlogsCard;
+
+
+
+/*<div className="blog-comment" style={
+    {
+        display: "flex",
+        flexDirection: "row",
+        paddingLeft: "10px",
+    }
+    }>
+    <CgComment className="blog-comment-icon" style={{
+        height: "30px",
+        width: "30px",
+        paddingRight: "10px",
+    }}/>
+        <Card.Text className="blog-likes">
+                {comments}
+        </Card.Text>
+        </div>*/    

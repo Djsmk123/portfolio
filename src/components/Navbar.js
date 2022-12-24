@@ -6,7 +6,7 @@ import logo from "../Assets/avatar.svg";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
-
+import { BsTerminal } from "react-icons/bs";
 import {
   AiFillStar,
   AiOutlineHome,
@@ -43,6 +43,13 @@ function NavBar() {
         <Navbar.Brand href="/" className="d-flex">
           <img src={logo} className="img-fluid logo" alt="brand" />
         </Navbar.Brand>
+        <a href="/terminal">
+        <BsTerminal style={{
+          color: "white",
+          
+        }}></BsTerminal>
+        </a>
+       
         <Navbar.Toggle
           aria-controls="responsive-navbar-nav"
           onClick={() => {
