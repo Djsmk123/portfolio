@@ -1,30 +1,54 @@
-import React, {useCallback, useEffect, useState} from "react";
-import { Container, Form } from "react-bootstrap";
+import React, {useCallback, useState} from "react";
+
 import CommandsComponent from "./command_terminal";
 import getOuput from "./commands";
+import { set } from "date-fns";
+
 
 function TerminalPortfolio() {
-    const [command, setCommand] = useState([
-        ["Run 'help' to see the list of commands"],
-        ["Run 'help' to see the list of commands"],
-        ["Run 'help' to see the list of commands"],
-    ]);
+    const [commands, setCommand] = useState([ ]);
+    const [loading, setLoading] = useState(false);
 
-    const handleCommand = useCallback((e) => {
-        setCommand((prev) => [...prev, [getOuput({
-            command: "help",
-        })]]);
-        e.target.value = "";
+    const handleCommand = useCallback(async (e) => {
+        e.preventDefault();
+        try{
+          setLoading(true);
+          const output=await getOuput({
+            command: e.target[0].value,
+          });
+          if(output==="")
+          {
+            setCommand([]);
+          }
+          //check is output is array or not
+          if(Array.isArray(output)){
+            setCommand((prev) => [...prev, output]);
+          }else{
+            setCommand((prev) => [...prev, [output]]);
+          }
+          e.target[0].value="";
+
+
+        }catch(e){
+
+            alert("Something went wrong"+e);
+        }finally{
+            setLoading(false);
+        }
+        
+        
     }, []);
 
+    
+
         return (
-<div class="container-terminal">
-  <div class="Terminal" >
-    <div class="Terminal__Toolbar">
-      <div class="Toolbar__buttons">
-        <button class="Toolbar__button Toolbar__button--exit">&#10005;</button>
-        <button class="Toolbar__button">&#9472;</button>
-        <button class="Toolbar__button">&#9723;</button>
+   <div class="container-terminal">
+      <div class="Terminal" >
+       <div class="Terminal__Toolbar">
+         <div class="Toolbar__buttons">
+          <button class="Toolbar__button Toolbar__button--exit">&#10005;</button>
+          <button class="Toolbar__button">&#9472;</button>
+          <button class="Toolbar__button">&#9723;</button>
       </div>
       <p class="Toolbar__user">smkwinner@ubuntu:~</p>
     </div>
@@ -33,16 +57,16 @@ function TerminalPortfolio() {
       <CommandsComponent
       command={[
         "Run 'help' to see the list of commands",
-        
       ]}
       >
       </CommandsComponent>
       {
-        command.map((c,index) => {
+        commands.map((c,index) => {
             return (
                 <CommandsComponent
                 command={c}
                 key={index}
+                isUserCommandVisible={false}
                 >
                 </CommandsComponent>
             )
@@ -50,23 +74,19 @@ function TerminalPortfolio() {
       }
       <div class="Terminal__Prompt">
         <span class="Prompt__user">smkwinner@ubuntu:</span><span class="Prompt__location">~</span><span class="Prompt__dollar">$</span>
-        <Form
-     
-
+        <form style={{
+          marginBottom:"10px"
+        }}
      id="command"
-      onSubmit={
-        (e) => {
-            e.preventDefault();
-            handleCommand(e);
-            }
-        }
+      onSubmit={handleCommand}
+  
       
-
      >
-        <Form.Control
-            type="text"
+        <input
+            type="input"
             placeholder="Enter command"
             className="input-terminal"
+          
             style={{
                 border: "none", outline: "none", background: "transparent", 
                     color: "white",
@@ -76,14 +96,23 @@ function TerminalPortfolio() {
                     width: "auto",
                     display: "block",
                     marginLeft: "8px",
-
                 }
             }
             
         />
 
-     </Form>
+     </form>
       </div>
+      {
+        loading && (
+          <div class="Terminal__Prompt">
+            <span class="Prompt__user">smkwinner@ubuntu:</span><span class="Prompt__location">~</span><span class="Prompt__dollar">$</span>
+            <div class="Prompt__cursor">
+              Fetching data ....................................................
+            </div>
+          </div>
+        )
+      }
     </div>
   </div>
 </div>

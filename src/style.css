@@ -823,11 +823,11 @@ button:focus {
   
 }
 .Terminal {
-  width: 600px;
-  height: 400px;
+  width: auto;
+  height: 500px;
   box-shadow: 2px 4px 10px rgba(0,0,0,.5);
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 
 .Terminal__Toolbar {
@@ -892,14 +892,17 @@ button:focus {
   padding-top: 2px;
   font-family: 'Ubuntu mono';
   overflow-y: scroll;
-  overflow-x: hidden;
+  overflow-x: scroll;
 }
 .Terminal__text {
   color: #ddd;
+  
+  
 }
 
 .Terminal__Prompt {
   margin-top: 10px;
+  margin-left: 5px;
   display: flex;
 }
 
@@ -913,13 +916,14 @@ button:focus {
   color: #ddd;
 }
 .Prompt__cursor {
-  max-width:20rem;
+  max-width:40rem;
   white-space: pre-wrap;
   width: auto;
   color: white;
   display: block;
   margin-left: 8px;
-  animation: 2000ms ease infinite alternate blink;
+  text-align: start;
+  animation: 2000ms ease alternate blink;
 }
 
 
