@@ -1,5 +1,5 @@
 import axios from "axios";
-import baseUrl from "../Blogs/Blogs";
+
 
 import ProjectsData from "../Projects/ProjectsData";
 
@@ -80,7 +80,7 @@ const AvailableCommands = {
             usage: "projects",
             fn: () => {
                  return ProjectsData.map((project,index) => {
-                    return (index+1) +"."+`${project.title} - ${project.desc} ${project.liveVersion!==undefined?"\nLive version: "+project.liveVersion:""}\n ${project.sourceCode!==undefined?"Source code: "+project.sourceCode:""}\n\n`;
+                    return `${index+1}. ${project.title} - ${project.desc} ${project.liveVersion!==undefined?"\nLive version: "+project.liveVersion:""}\n ${project.sourceCode!==undefined?"Source code: "+project.sourceCode:""}\n\n`;
                  }).join("");
                 }
             }, 

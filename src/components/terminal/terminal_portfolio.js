@@ -1,9 +1,6 @@
 import React, {useCallback, useState} from "react";
-
 import CommandsComponent from "./command_terminal";
 import getOuput from "./commands";
-import { set } from "date-fns";
-
 
 function TerminalPortfolio() {
     const [commands, setCommand] = useState([ ]);

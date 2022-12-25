@@ -1,14 +1,9 @@
 import React from "react";
 import axios from "axios";
 import { Container,Row,Dropdown,DropdownButton } from "react-bootstrap";
-
 import Particle from "../Particle";
-
 import BlogsCard from "./BlogsCard.js";
 const baseUrl = "https://dev.to/api/articles?username=djsmk123";
-
-
-
 function Blogs() {
     const [blogs,setBlogs] = React.useState([]);
     const [isPopular,setPopular] = React.useState(false);
@@ -26,15 +21,12 @@ function Blogs() {
                 setLoading(false);
             });
     }, []);
-    /*if(popular.length > 0){
-        popular.sort((a,b) => b.positive_reactions_count - a.positive_reactions_count);
-    }*/
-    
+  
     return (
         <Container fluid className="project-section">
       <Particle />
       <Container>
-        {/* check if error or loading */}
+        
         {error && <p style={{ color: "white" }}>
             Error fetching data ........
         </p>
@@ -81,7 +73,7 @@ function Blogs() {
                   setPopular(true);
                 }
               }}
-             alignRight title={isPopular ? "Popular" : "Latest"}
+              title={isPopular ? "Popular" : "Latest"}
                 id="dropdown-menu-align-right"  style={
                   {
                     backgroundColor: "#007bff",
@@ -132,6 +124,6 @@ function Blogs() {
 
 
 
-export default {Blogs,baseUrl};
+    export default Blogs;
 
     
