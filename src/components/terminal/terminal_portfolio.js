@@ -5,6 +5,8 @@ import getOuput from "./commands";
 function TerminalPortfolio() {
     const [commands, setCommand] = useState([ ]);
     const [loading, setLoading] = useState(false);
+    const [history, setHistory] = useState([] );
+    const [historyIndex, setHistoryIndex] = useState(1);
 
     const handleCommand = useCallback(async (e) => {
         e.preventDefault();
@@ -19,18 +21,19 @@ function TerminalPortfolio() {
           }
           //check is output is array or not
           if(Array.isArray(output)){
+            setHistory((prev) => [...prev, e.target[0].value]);
             setCommand((prev) => [...prev, output]);
           }else{
+            setHistory((prev) => [...prev, e.target[0].value]);
             setCommand((prev) => [...prev, [output]]);
           }
           e.target[0].value="";
-
-
+          setHistoryIndex((prev) => prev+1);
         }catch(e){
-
             alert("Something went wrong"+e);
         }finally{
             setLoading(false);
+            
         }
         
         
@@ -75,15 +78,26 @@ function TerminalPortfolio() {
           marginBottom:"10px"
         }}
      id="command"
-      onSubmit={handleCommand}
-  
       
+      onSubmit={handleCommand}
      >
         <input
             type="input"
             placeholder="Enter command"
             className="input-terminal"
-          
+            id="command"
+            onKeyDown={(e) => {
+                if(e.key==="ArrowUp" && history.length>0){
+                
+                    if(historyIndex>0){
+                        e.target.value=history[historyIndex];
+                        setHistoryIndex((prev) => prev-1);
+                      }
+                  
+                }
+            }}
+            
+
             style={{
                 border: "none", outline: "none", background: "transparent", 
                     color: "white",
