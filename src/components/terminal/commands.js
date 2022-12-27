@@ -65,6 +65,7 @@ const AvailableCommands = {
         usage: "blog",
         fn: async () => {
             const response = await axios.get("https:/dev.to/api/articles?username=djsmk123");
+            console.log("response"+response.data);
             const blogs = response.data;
             let blogList = "";
             blogs.forEach((blog) => {

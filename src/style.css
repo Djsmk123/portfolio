@@ -820,10 +820,9 @@ button:focus {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  
 }
 .Terminal {
-  width: auto;
+  width: 600px;
   height: 500px;
   box-shadow: 2px 4px 10px rgba(0,0,0,.5);
   overflow-y: scroll;
