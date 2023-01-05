@@ -14,6 +14,11 @@ function Github() {
         blockMargin={5}
         color="#c084f5"
         fontSize={16}
+        style={
+          {
+            marginBottom:"30px"
+          }
+        }
       />
     </Row>
   );
