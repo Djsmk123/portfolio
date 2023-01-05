@@ -38,8 +38,6 @@ function ResumeNew() {
         <Row className="resume">
           <Document file={
             { url: resumeLink,
-              
-              
             }
           } 
            className="d-flex justify-content-center">

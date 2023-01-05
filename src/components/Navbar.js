@@ -6,7 +6,8 @@ import logo from "../Assets/avatar.svg";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 import { CgGitFork } from "react-icons/cg";
-import { BsTerminal } from "react-icons/bs";
+import { BsTerminal,BsEye } from "react-icons/bs";
+import ViewsCounter from "../views_count";
 import {
   AiFillStar,
   AiOutlineHome,
@@ -122,6 +123,28 @@ function NavBar() {
               >
                 <CgGitFork style={{ fontSize: "1.2em" }} />{" "}
                 <AiFillStar style={{ fontSize: "1.1em" }} />
+              </Button>
+            </Nav.Item>
+            
+            <Nav.Item className="fork-btn" style={
+              {
+                flexDirection: "row",
+              }
+            }>
+              <Button className="fork-btn-inner" style={{
+            
+              }}
+              href="https://api.countapi.xyz/hit/smkwinner.vercel.app/visits"
+              >
+               
+  
+                <BsEye style={{ fontSize: "1.2em",marginRight:"5px" }}>{
+                
+                }</BsEye>
+               <ViewsCounter/>
+
+                
+                
               </Button>
             </Nav.Item>
           </Nav>

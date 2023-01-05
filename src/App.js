@@ -30,6 +30,7 @@ function App() {
 
     return () => clearTimeout(timer);
   }, []);
+  
 
   return (
     <Router>
@@ -52,3 +53,5 @@ function App() {
   );
 }
 export default App;
+
+
