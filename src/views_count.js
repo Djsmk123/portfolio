@@ -9,15 +9,28 @@ function ViewsCounter() {
         setCount(0);
         return;
       }
-      else{
-        axios.get("https://api.countapi.xyz/hit/smkwinner.vercel.app/visits")
-        .then(res => {
-          setCount(res.data.value);
-          console.log("Views: " + res.data.value);
-        })
-        .catch(err => {
-          console.log(err);
-        }) 
+      else{ 
+
+        //check if count is already stored in local storage
+        if (localStorage.getItem("count") !== null && localStorage.getItem("count") !== undefined) {
+          setCount(localStorage.getItem("count"));
+          return;
+        } 
+        // if not, get the count from the api
+        else{
+          axios.get("https://api.countapi.xyz/hit/smkwinner.vercel.app/visits")
+          .then(res => {
+            setCount(res.data.value);
+            console.log("Views: " + res.data.value);
+            // store the count in local storage
+            localStorage.setItem("count", res.data.value);
+          })
+        
+          .catch(err => {
+            console.log(err);
+          }) 
+        }
+       
       }
      
     }, []);

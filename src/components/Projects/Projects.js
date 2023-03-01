@@ -4,7 +4,11 @@ import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
 import ProjectsData from "./ProjectsData";
 
+
 function Projects() {
+  
+  
+
   return (
     <Container fluid className="project-section">
       <Particle />
@@ -20,6 +24,7 @@ function Projects() {
 
            return <Col md={4} className="project-card">
            <ProjectCard
+           key={index}
             cardItem={item}
            />
          </Col>
