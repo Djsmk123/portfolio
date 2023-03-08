@@ -142,9 +142,7 @@ function NavBar() {
                 
                 }</BsEye>
                <ViewsCounter/>
-
-                
-                
+   
               </Button>
             </Nav.Item>
           </Nav>

@@ -88,6 +88,7 @@ function Blogs() {
               <Dropdown.Item eventKey="option-1">{isPopular?"Latest":"Popular"}</Dropdown.Item>
               <Dropdown.Item eventKey="option-2">{!isPopular?"Latest":"Popular"}</Dropdown.Item>
               
+              
       </DropdownButton>
           
        
@@ -102,6 +103,12 @@ function Blogs() {
 
             {
                blogs.map((blog,index) => {
+                const url=isFeatured(blog);
+                if(url!==null && url!==undefined)
+                {
+                  blog.url=url;
+                  blog['featured']=true;
+                }
                 return <BlogsCard key={index} blog={blog} />
             })
             }
@@ -126,4 +133,17 @@ function Blogs() {
 
     export default Blogs;
 
-    
+    function isFeatured(blog){
+     const featuredUrl=[
+      
+        'https://dev.to/djsmk123/is-your-flutter-application-secured-best-practices-for-developing-and-deploying-secure-flutter-apps-4njm',
+        "https://dev.to/djsmk123/fluttercreate-animation-splash-screen-using-android-12-api-only-for-android-54pg",
+      
+     ]; 
+      for(let i=0;i<featuredUrl.length;i++){
+       if(blog.url===featuredUrl[i]){
+         return "https://devlibrary.withgoogle.com/authors/mdmobin";
+       }
+        
+     }
+    }

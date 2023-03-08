@@ -437,7 +437,7 @@ button:focus {
   text-overflow: ellipsis!important;
   display: block;
   display: -webkit-box;
-  height:4em!important;
+  
   line-height: 1.5em!important;
   -webkit-line-clamp: 1 !important;
   -webkit-box-orient: vertical;

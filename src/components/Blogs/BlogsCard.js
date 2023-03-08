@@ -15,15 +15,19 @@ function BlogsCard(props) {
     const desc=blog["description"];
     const tag=blog["tag_list"];
     const likes=blog["positive_reactions_count"];
-
+    var is_featured=false;
+    if(blog["featured"]===true)
+    {
+        is_featured=true;
+    }
+    
   return (
    
    
    <Card className="project-card-view" style={{
         width: "30rem",
         maxHeight: "450px",
-        margin: "10px",
-    
+        margin: "10px", 
    }
    } href={link} 
    onClick={() => window.open(link,'blank')}>
@@ -31,12 +35,30 @@ function BlogsCard(props) {
            
         <Card.Body style={{
             padding: "10px",
-            height: "100%",
+            height: "20rem",    
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between"
 
         }}>
+            {
+                is_featured &&<div class="featured_label" style={{
+                fontSize: "0.5rem",
+        
+                alignSelf: "flex-end",
+                padding: "5px",
+                color:"red",
+                fontWeight: "bold",
+                textAlign: "center",
+                backgroundColor: "white",
+                cursor:'pointer'
+                }}
+                onClick={() => window.open(link,'blank')}
+                >
+                Featured on Google Dev Library
+            </div>
+            }
+            
             <Row style={{
                 justifyContent: "center",
                 paddingBottom: "10px",

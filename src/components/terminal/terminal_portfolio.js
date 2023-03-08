@@ -33,7 +33,7 @@ function TerminalPortfolio() {
             alert("Something went wrong"+e);
         }finally{
             setLoading(false);
-            
+  
         }
         
         
