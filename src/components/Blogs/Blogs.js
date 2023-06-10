@@ -135,9 +135,9 @@ function Blogs() {
 
     function isFeatured(blog){
      const featuredUrl=[
-      
         'https://dev.to/djsmk123/is-your-flutter-application-secured-best-practices-for-developing-and-deploying-secure-flutter-apps-4njm',
         "https://dev.to/djsmk123/fluttercreate-animation-splash-screen-using-android-12-api-only-for-android-54pg",
+        "https://dev.to/djsmk123/flutter-pagination-ft-bloc-4hg3",
       
      ]; 
       for(let i=0;i<featuredUrl.length;i++){
