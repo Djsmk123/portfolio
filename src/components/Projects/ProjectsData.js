@@ -1,22 +1,37 @@
-import ProsparertoImg from "../../Assets/Projects/img/prospareto.webp";
-import itmtbLogo from "../../Assets/Projects/img/itmtb_org.jpg";
-import patercentLogo from "../../Assets/Projects/img/patercent.jpeg";
-import livveAppLogo from "../../Assets/Projects/img/livve_org.svg";
-import livveAppDemo from "../../Assets/Projects/img/livve.gif";
-import togwsAppDemo from "../../Assets/Projects/img/togws.gif";
-import memeGenAppDemo from "../../Assets/Projects/img/meme_app.gif";
-import jeevandanAppImg from "../../Assets/Projects/img/jeevandaan.png";
-import mathsAppDemo from "../../Assets/Projects/img/Mathematics_App.gif";
-import SpsDemo from "../../Assets/Projects/img/sps_game.gif";
-import NotepadDemo from "../../Assets/Projects/img/notepad_app.gif";
 import BmiCalc from "../../Assets/Projects/img/bmi_app.png";
 import ChatsWith from "../../Assets/Projects/img/chatsWith.jpeg";
-import Superdot from "../../Assets/Projects/img/superdot.jpeg";
+import FreeDoctor from "../../Assets/Projects/img/free-doctor.jpg";
+import FreeDoctorlogo2 from "../../Assets/Projects/img/free-doctor_logo.jpg";
+import itmtbLogo from "../../Assets/Projects/img/itmtb_org.jpg";
+import jeevandanAppImg from "../../Assets/Projects/img/jeevandaan.png";
+import livveAppDemo from "../../Assets/Projects/img/livve.gif";
+import livveAppLogo from "../../Assets/Projects/img/livve_org.svg";
 import LunaSkies from "../../Assets/Projects/img/luna_skies.gif";
-import TulipLogo from "../../Assets/Projects/img/tulip-logo-white.png"
-import Upasthit from "../../Assets/Projects/img/upasthit.png"
+import mathsAppDemo from "../../Assets/Projects/img/Mathematics_App.gif";
+import memeGenAppDemo from "../../Assets/Projects/img/meme_app.gif";
+import NotepadDemo from "../../Assets/Projects/img/notepad_app.gif";
+import patercentLogo from "../../Assets/Projects/img/patercent.jpeg";
+import ProsparertoImg from "../../Assets/Projects/img/prospareto.webp";
+import SpsDemo from "../../Assets/Projects/img/sps_game.gif";
+import Superdot from "../../Assets/Projects/img/superdot.jpeg";
+import togwsAppDemo from "../../Assets/Projects/img/togws.gif";
+import TulipLogo from "../../Assets/Projects/img/tulip-logo-white.png";
+import Upasthit from "../../Assets/Projects/img/upasthit.png";
 
 const ProjectsData=[
+    {
+        "title":"Free Doctor",
+        "img":FreeDoctor,
+        "organisation":{
+            "img":FreeDoctorlogo2,
+            "src":"https://freedoctor.co.in/",
+            "name":"Free Doctor (OPC) PVT LTD"
+        },
+        "skills":["Flutter,Bloc,Firebase,PHP"],
+        "priority":1,
+        "desc":"World's First Healthcare Social Media. A complete medical system",
+        "liveVersion":"https://play.google.com/store/apps/details?id=com.freedoctor1.application"
+    },
     {
         "title":"Prosparerto",
         "img":ProsparertoImg,
