@@ -11,8 +11,10 @@ function ResumeNew() {
 
   const [pageNumberPdf, setPageNumberPdf]=useState(1);
   const [numPages, setNumPages] = useState(null);
+  const [width,setWidth]=useState(1600);
   const onPageChange = (page) => {
     setPageNumberPdf(page);
+    setWidth(window.innerWidth);
   };
   return (
     <div>
@@ -33,13 +35,15 @@ function ResumeNew() {
         <Row className="resume">
           <Document 
           onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-          style={{ height: "100px",maxWidth:"100px" }} // Set the height to 200px
-        
+         
+      
           file={pdfFile} 
           
            className="d-flex justify-content-center">
             <Page 
             pageNumber={pageNumberPdf}
+            scale={width > 786 ? 1.7 : 0.2}
+            
             onPageLoad={({ pageIndex }) => onPageChange(pageIndex + 1)}
             />
 
@@ -51,7 +55,7 @@ function ResumeNew() {
         variant="primary"
         disabled={pageNumberPdf === 1}
         onClick={() => onPageChange(pageNumberPdf - 1)}
-        style={{ maxWidth: "250px", marginRight: "10px" }}
+        style={{ maxWidth: "250px", marginRight: "10px",marginBottom:"10px",}}
       >
         Previous Page
       </Button>
@@ -59,7 +63,7 @@ function ResumeNew() {
         variant="primary"
         disabled={pageNumberPdf === numPages}
         onClick={() => onPageChange(pageNumberPdf + 1)}
-        style={{ maxWidth: "250px" }}
+        style={{ maxWidth: "250px",marginBottom:"10px" }}
       >
         Next Page
       </Button>

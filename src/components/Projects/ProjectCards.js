@@ -1,8 +1,8 @@
 import React from "react";
-import {Card} from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
-import { CgWebsite,CgOrganisation } from "react-icons/cg";
 import { BsGithub } from "react-icons/bs";
+import { CgOrganisation, CgWebsite } from "react-icons/cg";
 function ProjectCards(props) {
   const project=props.cardItem;
   const MAX_LENGTH = 100;
@@ -43,7 +43,9 @@ function ProjectCards(props) {
           }
         </Card.Text> 
         {project["sourceCode"]!=null && (
-         <Button variant="primary" href={project["sourceCode"]} target="_blank">
+         <Button variant="primary" href={project["sourceCode"]}
+         style={{marginBottom:"10px"}}
+         target="_blank">
          <BsGithub /> &nbsp;
              {"Github"}
           </Button>
@@ -54,7 +56,7 @@ function ProjectCards(props) {
             variant="primary"
             href={project["liveVersion"]}
             target="_blank"
-            style={{ marginLeft: "10px" }}
+            style={{ marginLeft: "10px",marginBottom:"10px"}}
           >
             <CgWebsite /> &nbsp;
             {"Live"}
@@ -65,7 +67,7 @@ function ProjectCards(props) {
           variant="secondary"
           href={project["organisation"]["src"]}
           target="_blank"
-          style={{ marginLeft: "10px" }}
+          style={{ marginLeft: "10px",marginBottom:"10px", }}
         >
           <CgOrganisation /> &nbsp;
           {project["organisation"]["name"]}
