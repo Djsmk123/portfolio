@@ -1,23 +1,24 @@
-import React, { useState, useEffect } from "react";
-import Preloader from "../src/components/Pre";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
-import Footer from "./components/Footer";
-import Blogs from "./components/Blogs/Blogs";
-import Resume from "./components/Resume/ResumeNew";
-import TerminalPortfolio from "./components/terminal/terminal_portfolio";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate
-} from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
-import "./style.css";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes
+} from "react-router-dom";
+import Preloader from "../src/components/Pre";
+import "./App.css";
+import About from "./components/About/About";
+import Blogs from "./components/Blogs/Blogs";
+import Footer from "./components/Footer";
+import Home from "./components/Home/Home";
+import Navbar from "./components/Navbar";
+import Projects from "./components/Projects/Projects";
+import Resume from "./components/Resume/ResumeNew";
+import ScrollToTop from "./components/ScrollToTop";
+import MeetPage from "./components/meeting/meet";
+import TerminalPortfolio from "./components/terminal/terminal_portfolio";
+import "./style.css";
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
   
+  
+
 
   return (
     <Router>
@@ -45,6 +48,7 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/terminal" element={<TerminalPortfolio/>} />
+          <Route path="/meet" element={<MeetPage/>} />
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />

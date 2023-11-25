@@ -1,22 +1,17 @@
 import React, { useState } from "react";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import Container from "react-bootstrap/Container";
-import logo from "../Assets/avatar.svg";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
-import { CgGitFork } from "react-icons/cg";
-import { BsTerminal,BsEye } from "react-icons/bs";
-import ViewsCounter from "../views_count";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 import {
-  AiFillStar,
-  AiOutlineHome,
-  AiOutlineFundProjectionScreen,
-  AiOutlineUser,
-  
+  AiFillStar, AiOutlineFundProjectionScreen, AiOutlineHome, AiOutlineUser
 } from "react-icons/ai";
+import { BsEye, BsTerminal } from "react-icons/bs";
+import { CgFileDocument, CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
-import { CgFileDocument } from "react-icons/cg";
+import { Link } from "react-router-dom";
+import logo from "../Assets/avatar.svg";
+import ViewsCounter from "../views_count";
 
 
 function NavBar() {
