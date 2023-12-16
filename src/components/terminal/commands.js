@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-import ProjectsData from "../Projects/ProjectsData";
+import { ProjectListSchema } from "../Projects/project_schema";
 
 const AvailableCommands = {
     "help": {
@@ -79,10 +79,20 @@ const AvailableCommands = {
 
             description: "List all projects",
             usage: "projects",
-            fn: () => {
-                 return ProjectsData.map((project,index) => {
-                    return `${index+1}. ${project.title} - ${project.desc} ${project.liveVersion!==undefined?"\nLive version: "+project.liveVersion:""}\n ${project.sourceCode!==undefined?"Source code: "+project.sourceCode:""}\n\n`;
-                 }).join("");
+            fn: async () => {
+                const url = "https://smkwinner-ghost.vercel.app/api/projects?all=1"; 
+                const response = await axios.get(url);
+        
+                if(response.data.success){            
+                    var projects=response.data.data
+                    const data = ProjectListSchema.parse(projects.projects);
+                    return data.map((project,index) => {
+                        return `${index+1}. ${project.title} - ${project.description}  ${project.live!=null?"\nLive version: "+project.live:""} ${project.video_url!=null?"Live"+project.video_url:""}\n ${project.open_source?"Source code: "+project.github:""}\n\n`;
+                     }).join("");
+                  }else{
+                    return response.data.message;
+                  }
+                 
                 }
             }, 
     './contact':{

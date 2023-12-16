@@ -1,13 +1,42 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Container, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { AiOutlineDownload } from "react-icons/ai";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
-import pdfFile from "../../Assets/MdMobinResume.pdf";
 import Particle from "../Particle";
+import Preloader from "../Pre";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+const url = "https://smkwinner-ghost.vercel.app/api/resume"; 
 function ResumeNew() {
+  const [resume, setResume] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(url);
+      
+          if(response.data.success){            
+            var uri=response.data.data
+            setResume(uri);
+          }else{
+            setError(response.data.message);
+          }
+      
+        
+        setLoading(false);
+        
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
 
   const [pageNumberPdf, setPageNumberPdf]=useState(1);
   const [numPages, setNumPages] = useState(null);
@@ -17,13 +46,18 @@ function ResumeNew() {
     setWidth(window.innerWidth);
   };
   return (
+    
     <div>
       <Container fluid className="resume-section">
         <Particle />
-        <Row style={{ justifyContent: "center", position: "relative" }}>
+        {loading && <Preloader load={loading} />}
+
+        {error && <p>Error: {error.message}</p>}
+        {resume && (<>
+          <Row style={{ justifyContent: "center", position: "relative" }}>
           <Button
             variant="primary"
-            href={pdfFile}
+            href={resume}
             target="_blank"
             style={{ maxWidth: "250px" }}
           >
@@ -31,13 +65,16 @@ function ResumeNew() {
             &nbsp;Download CV
           </Button>
         </Row>
+        
+        
+
 
         <Row className="resume">
           <Document 
           onLoadSuccess={({ numPages }) => setNumPages(numPages)}
          
       
-          file={pdfFile} 
+          file={url} 
           
            className="d-flex justify-content-center">
             <Page 
@@ -68,6 +105,8 @@ function ResumeNew() {
         Next Page
       </Button>
     </Row>
+        </>)}
+        
       </Container>
     </div>
   );
