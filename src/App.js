@@ -16,7 +16,7 @@ import Navbar from "./components/Navbar";
 import Projects from "./components/Projects/Projects";
 import Resume from "./components/Resume/ResumeNew";
 import ScrollToTop from "./components/ScrollToTop";
-import MeetPage from "./components/meeting/meet";
+//import MeetPage from "./components/meeting/meet";
 import TerminalPortfolio from "./components/terminal/terminal_portfolio";
 import "./style.css";
 
@@ -48,13 +48,14 @@ function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/blogs" element={<Blogs />} />
           <Route path="/terminal" element={<TerminalPortfolio/>} />
-          <Route path="/meet" element={<MeetPage/>} />
+          
           <Route path="*" element={<Navigate to="/"/>} />
         </Routes>
         <Footer />
       </div>
     </Router>
   );
+  /*<Route path="/meet" element={<MeetPage/>} />*/
 }
 export default App;
 

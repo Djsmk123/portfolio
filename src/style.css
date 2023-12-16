@@ -536,6 +536,7 @@ button:focus {
   opacity: 0.9 !important;
   transition: all 0.5s ease 0s !important;
   height: 100% !important;
+  
 }
 
 .project-card-view:hover {
