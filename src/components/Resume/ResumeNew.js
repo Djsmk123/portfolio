@@ -8,7 +8,7 @@ import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import Particle from "../Particle";
 import Preloader from "../Pre";
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
-const url = "https://smkwinner-ghost.vercel.app/api/resume"; 
+const resumeEndpoint = "https://smkwinner-ghost.vercel.app/api/resume"; 
 function ResumeNew() {
   const [resume, setResume] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -16,7 +16,7 @@ function ResumeNew() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(url);
+        const response = await axios.get(resumeEndpoint);
       
           if(response.data.success){            
             var uri=response.data.data
@@ -72,17 +72,18 @@ function ResumeNew() {
         <Row className="resume">
           <Document 
           onLoadSuccess={({ numPages }) => setNumPages(numPages)}
-         
       
-          file={url} 
-          
+          file={resume}
+          onLoadError={console.error}
+        
            className="d-flex justify-content-center">
             <Page 
             pageNumber={pageNumberPdf}
             scale={width > 786 ? 1.7 : 0.2}
-            
+          
             onPageLoad={({ pageIndex }) => onPageChange(pageIndex + 1)}
             />
+          
 
           </Document>
         </Row>
@@ -91,6 +92,7 @@ function ResumeNew() {
       <Button
         variant="primary"
         disabled={pageNumberPdf === 1}
+
         onClick={() => onPageChange(pageNumberPdf - 1)}
         style={{ maxWidth: "250px", marginRight: "10px",marginBottom:"10px",}}
       >

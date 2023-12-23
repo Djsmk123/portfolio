@@ -9,6 +9,7 @@ import {
 import { BsEye, BsTerminal } from "react-icons/bs";
 import { CgFileDocument, CgGitFork } from "react-icons/cg";
 import { ImBlog } from "react-icons/im";
+import { IoCalendarNumberOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import logo from "../Assets/avatar.svg";
 import ViewsCounter from "../views_count";
@@ -107,6 +108,20 @@ function NavBar() {
                   style={{ marginBottom: "2px" }}
                 />{" "}
                 Blogs
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link
+                //as={Link}
+              
+                onClick={()=>{
+                  window.open("https://calendly.com/djsmk123/meet","_blank");
+                }}
+              >
+                <IoCalendarNumberOutline 
+                  style={{ marginBottom: "2px",color:"white" }}
+                />{" "}
+                Book a call
               </Nav.Link>
             </Nav.Item>
 
